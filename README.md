@@ -1,0 +1,1 @@
+Hola, este repositorio fue para una clase de sqlite en la UdeA, no contiene información relevante ni nueva
