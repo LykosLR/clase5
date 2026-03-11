@@ -34,7 +34,13 @@ query_3 = """SELECT Tipo,
                GROUP BY Tipo
                ORDER BY cantidad DESC;
            """
+query_l = """
+SELECT * FROM inmuebles_raw
+WHERE Operación = "Alquiler" AND cast(REPLACE(REPLACE("Precio Venta", '$', ''), ',', '') AS DECIMAL) < 1000000
 
+
+
+"""
 
 # ========================================================= #
 # 4. ¿Cuál es la superficie promedio por tipo de propiedad? #
@@ -151,8 +157,8 @@ SELECT Vendedor,
 # ==================================================================================== #
 # Ejecutar la consulta y cargar el resultado en un DataFrame de Pandas y guarda en CSV #
 # ==================================================================================== #
-df = pd.read_sql_query(query_10, bd)
-df.to_csv("data/query_10.csv", index=False)
+df = pd.read_sql_query(query_4, bd)
+df.to_csv("data/query_4.csv", index=False)
 
 # =================================================== #
 # Imprimir el resultado de la consulta en la terminal #
